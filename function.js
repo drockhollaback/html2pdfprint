@@ -175,7 +175,8 @@ const originalHTML = `
 	}
 	};
 	html2pdf().set(opt).from(element).toPdf().get('pdf').then(function(pdf) {
-	  pdf.autoPrint();
+	  var pdfURL = pdf.output('bloburl');
+	  window.open(pdfURL, '_blank');
 	  button.innerText = 'Done 🎉';
 	  button.className = 'done';
 	  setTimeout(function() { 
